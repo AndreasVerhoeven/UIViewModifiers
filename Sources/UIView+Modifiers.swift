@@ -11,11 +11,6 @@ extension UIView: PropertySettable {
 }
 
 extension UIView {
-	private func with<T>(_ keyPath: ReferenceWritableKeyPath<UIView, T>, as value: T) -> Self {
-		self[keyPath: keyPath] = value
-		return self
-	}
-	
 	/// Sets this view to hidden and is chainable
 	func hidden() -> Self { with(\.isHidden, as: true) }
 	
@@ -60,6 +55,11 @@ extension UIView {
 	/// sets this view's overrideUserInterfaceStyle to .light and is chainable
 	@available(iOS 13, *)
 	func alwaysLight() -> Self { interfaceStyle(.light) }
+	
+	private func with<T>(_ keyPath: ReferenceWritableKeyPath<UIView, T>, as value: T) -> Self {
+		self[keyPath: keyPath] = value
+		return self
+	}
 }
 
 extension UILabel {
@@ -68,4 +68,9 @@ extension UILabel {
 	
 	/// sets this view's  lineBreakStrategy to a value and is chainable
 	func lineBreakStrategy(_ value: NSLineBreakMode) -> Self { with(\.lineBreakMode, as: value) }
+	
+	private func with<T>(_ keyPath: ReferenceWritableKeyPath<UIView, T>, as value: T) -> Self {
+		self[keyPath: keyPath] = value
+		return self
+	}
 }
