@@ -69,7 +69,7 @@ extension UILabel {
 	/// sets this view's  lineBreakStrategy to a value and is chainable
 	func lineBreakStrategy(_ value: NSLineBreakMode) -> Self { with(\.lineBreakMode, as: value) }
 	
-	private func with<T>(_ keyPath: ReferenceWritableKeyPath<UIView, T>, as value: T) -> Self {
+	private func with<T>(_ keyPath: ReferenceWritableKeyPath<UILabel, T>, as value: T) -> Self {
 		self[keyPath: keyPath] = value
 		return self
 	}
