@@ -10,7 +10,7 @@ import UIKit
 extension UIView: PropertySettable {
 }
 
-extension UIView {
+public extension UIView {
 	/// Sets this view to hidden and is chainable
 	func hidden() -> Self { with(\.isHidden, as: true) }
 	
@@ -62,7 +62,7 @@ extension UIView {
 	}
 }
 
-extension UILabel {
+public extension UILabel {
 	/// sets this view's  adjustFontSizeToWidth to true and is chainable
 	func adjustsFontSizeToFitWidth() -> Self { with(\.adjustsFontSizeToFitWidth, as: true) }
 	
