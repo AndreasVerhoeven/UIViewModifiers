@@ -29,6 +29,10 @@ public extension UIView {
 	/// sets this view's tint color to a color and is chainable
 	func tintColor(_ color: UIColor) -> Self { with(\.tintColor, as: color) }
 	
+	
+	/// Sets this views' tint color to a color and its tintAdjustmentMode to normal and ins chainable
+	func fixedTintColor(_ color: UIColor) -> Self { tintColor(color).tintAdjustmentMode(.normal) }
+	
 	/// sets this view's tint adjustment mode to a value and is chainable
 	func tintAdjustmentMode(_ mode: UIView.TintAdjustmentMode) -> Self {  with(\.tintAdjustmentMode, as: mode) }
 	
@@ -43,6 +47,9 @@ public extension UIView {
 	
 	/// sets this view's direction layout margins to a value and is chainable
 	func directionalLayoutMargins(_ value: NSDirectionalEdgeInsets) -> Self { with(\.directionalLayoutMargins, as: value) }
+	
+	/// sets this view's transform to a value and is chainable
+	func transformed(_ value: CGAffineTransform) -> Self { with(\.transform, as: value) }
 	
 	/// sets this view's overrideUserInterfaceStyle to a value and is chainable
 	@available(iOS 13, *)
