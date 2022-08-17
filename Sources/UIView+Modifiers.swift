@@ -63,6 +63,22 @@ public extension UIView {
 	@available(iOS 13, *)
 	func alwaysLight() -> Self { interfaceStyle(.light) }
 	
+	/// sets the layer's corner radius, mask and curve
+	@available(iOS 13, *)
+	func cornerRadius(_ radius: CGFloat, corners: CACornerMask = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner], curve: CALayerCornerCurve = .circular) -> Self {
+		layer.cornerRadius = radius
+		layer.cornerCurve = curve
+		layer.maskedCorners = corners
+		return self
+	}
+	
+	/// sets the layer's corner radius
+	func cornerRadius(_ radius: CGFloat, corners: CACornerMask = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]) -> Self {
+		layer.cornerRadius = radius
+		layer.maskedCorners = corners
+		return self
+	}
+	
 	private func with<T>(_ keyPath: ReferenceWritableKeyPath<UIView, T>, as value: T) -> Self {
 		self[keyPath: keyPath] = value
 		return self
