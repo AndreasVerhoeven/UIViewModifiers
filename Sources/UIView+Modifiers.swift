@@ -97,3 +97,21 @@ public extension UILabel {
 		return self
 	}
 }
+
+
+public extension UISegmentedControl {
+	/// sets this controls selected segment index to a value and ins chainable
+	func withSelectedSegmentIndex(_ index: Int) -> Self {
+		return with(\.selectedSegmentIndex, as: index)
+	}
+
+	/// selects the first segment
+	func withFirstSegmentSelected() -> Self {
+		return withSelectedSegmentIndex(0)
+	}
+
+	/// selects the last segment
+	func withLastSegmentSelected() -> Self {
+		return withSelectedSegmentIndex(numberOfSegments - 1)
+	}
+}
